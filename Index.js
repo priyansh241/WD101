@@ -70,7 +70,7 @@ const displayEntries = () => {
 
 };
 
-const saveUserForm = (event) => {
+const save = (event) => {
 
   event.preventDefault();
 
@@ -106,7 +106,7 @@ localStorage.setItem("user-entries", JSON.stringify(userEntries));
 
 };
 
-userform.addEventListener("submit", saveUserForm);
+userform.addEventListener("submit", save);
 
 displayEntries();
 
