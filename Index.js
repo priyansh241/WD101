@@ -99,3 +99,55 @@ const saveUserForm = (event) => {
   };
 
   userEntries.push(entry);
+  
+localStorage.setItem("user-entries", JSON.stringify(userEntries));
+
+  displayEntries();
+
+};
+
+userform.addEventListener("submit", saveUserForm);
+
+displayEntries();
+
+let dateElement = document.getElementById("dob");
+
+dateElement.addEventListener("change", () => {
+
+  let [year, month, date] = document.getElementById("dob").value.split("-");
+
+  let dob = new Date(year, month, date);
+
+  let age = getAge(dob);
+
+  if (age < 18 || age > 55) {
+
+    dateElement.setCustomValidity("Your age doesn't lies between 18 and 55.");
+
+  } else {
+
+    dateElement.setCustomValidity("");
+
+  }
+
+});
+
+function getAge(date) {
+
+  let today = new Date();
+
+  let birthDate = new Date(date);
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+
+  let m = today.getMonth() - birthDate.getMonth();
+
+  if (m < 0 || (m === 0 && birthDate.getDate() < birthDate.getDate())) {
+
+    age--;
+
+  }
+
+  return age;
+
+}
