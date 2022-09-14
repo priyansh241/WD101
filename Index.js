@@ -32,17 +32,17 @@ const displayEntries = () => {
 
     .map((entry) => {
 
-      const name1 = `<td align="center" style="padding:4px 8px">${entry.name}</td>`;
+      const name = `<td align="center" style="padding:4px 8px">${entry.name}</td>`;
 
-      const email1 = `<td align="center" style="padding:4px 8px">${entry.email}</td>`;
+      const e_mail1 = `<td align="center" style="padding:4px 8px">${entry.email}</td>`;
 
-      const password1 = `<td align="center" style="padding:4px 8px">${entry.password}</td>`;
+      const pswd= `<td align="center" style="padding:4px 8px">${entry.password}</td>`;
 
-      const dob1 = `<td align="center" style="padding:4px 8px">${entry.dob}</td>`;
+      const dob = `<td align="center" style="padding:4px 8px">${entry.dob}</td>`;
 
-      const terms1 = `<td align="center" style="padding:4px 8px">${entry.terms}</td>`;
+      const terms = `<td align="center" style="padding:4px 8px">${entry.terms}</td>`;
 
-      const row = `<tr>${name1} ${email1} ${password1} ${dob1} ${terms1}</tr>`;
+      const row = `<tr>${name} ${e_mail1} ${pswd} ${dob} ${terms}</tr>`;
 
       return row;
 
@@ -122,7 +122,7 @@ dateElement.addEventListener("change", () => {
 
   if (age < 18 || age > 55) {
 
-    dateElement.setCustomValidity("Your age doesn't lies between 18 and 55.");
+    dateElement.setCustomValidity("Your age must be between 18 and 55.");
 
   } else {
 
